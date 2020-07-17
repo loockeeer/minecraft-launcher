@@ -1,0 +1,72 @@
+
+.LoginCard {
+	background-color: var(--dark-gray);
+	width: 370px;
+	height: 100%;
+	display: flex;
+    justify-content: space-around;
+    align-items:center;
+    flex-direction: column;
+}
+
+.LoginCardContainer {
+	display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.LoginCard__head {
+	align-items: center;
+	display: flex;
+}
+
+.LoginCard__head__title {
+	font-size: 20px;
+	font-family: Roboto;
+	font-weight: 700;
+	color: #fff;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.LoginCard__form {
+	display: flex;
+	align-items: center;
+	flex-direction: column
+}
+
+.LoginCard__form__username {
+	margin-bottom: 25px;
+	width: 125%;
+}
+
+.LoginCard__form__password {
+	margin-bottom: 25px;
+	width: 125%;
+}
+
+.LoginCard__form__rememberme {
+	color: #fff;
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 15px;
+	letter-spacing: 0.02em;
+	margin-bottom: 80px;
+}
+
+.LoginCard__submit {
+	padding: 8px;
+	background-color: var(--very-dark-gray);
+	color: #fff;
+	border-radius: 3px;
+	font-family: Roboto;
+	text-decoration: none;
+}
+
+.LoginCard__needAccount {
+	color: #fff;
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 14px;
+}

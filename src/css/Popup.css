@@ -1,0 +1,30 @@
+.Popup {
+	margin-top: 100px;
+	position: fixed;
+	width: 420px;
+	background-color: var(--dark-gray);
+	padding: 20px;
+	border-radius: 1.5%;
+}
+.alert {
+	border: solid var(--black-red) 1px;
+}
+.good {
+	border: solid var(--black-green) 1px;
+}
+.PopupContainer {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.Popup__title {
+	color: #fff;
+	font-family: Roboto;
+	font-size: 25px;
+}
+
+.Popup__content {
+	color: #fff;
+	font-family: Roboto;
+}

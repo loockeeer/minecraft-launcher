@@ -1,0 +1,44 @@
+@import url("./roboto.css");
+
+body {
+  --black-red: #540A0C;
+  --dark-gray: #242424;
+  --very-dark-gray: #171515;
+}
+
+html {
+   margin: 0;
+   width: 100%;
+   background-color: #413C3C;
+}
+
+body {
+   margin: 0;
+   min-height: 100%;
+   width: 100%;
+}
+body::after {
+  	content: "";
+	background: url("/background.webp");
+	
+	background-size: cover;
+	opacity: 0.2;
+  	top: 0;
+  	left: 0;
+  	bottom: 0;
+  	right: 0;
+  	position: absolute;
+  	z-index: -1;   
+}
+
+.noBorderInput {
+  border: none;
+  border-bottom: 2px solid #7E7E7E;
+  background-color: var(--dark-gray);
+  outline: none;
+  font-family: Roboto;
+  color: white;
+}
+.noBorderInput:focus {
+  border-bottom: 2px solid #fff;
+}
