@@ -1,10 +1,10 @@
 .Popup {
-	margin-top: 100px;
-	position: fixed;
-	width: 420px;
-	background-color: var(--very-dark-gray);
-	padding: 20px;
-	border-radius: 1.5%;
+  margin-top: 100px;
+  position: fixed;
+  width: 420px;
+  background-color: var(--very-dark-gray);
+  padding: 20px;
+  border-radius: 1.5%;
   animation: popup_animation 0.8s;
   display: flex;
   flex-direction: column;
@@ -15,33 +15,38 @@
     margin-top: 0;
   }
   to {
-    margin-top: 100px
+    margin-top: 100px;
   }
 }
 
 .alert {
-	border: solid var(--black-red) 1px;
+  border: solid var(--dark-red) 1px;
 }
 .good {
-	border: solid var(--black-green) 1px;
+  border: solid var(--black-green) 1px;
 }
 .PopupContainer {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .Popup__title {
-	color: #fff;
-	font-family: Roboto;
-	font-size: 25px;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 25px;
 }
 
 .Popup__content {
-	color: #fff;
-	font-family: Roboto;
+  color: #fff;
+  font-family: Roboto;
 }
 
 .Popup__closeButton {
   align-self: flex-end;
+  background: url("/icons/close.svg");
+  width: 12px;
+  height: 12px;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(28deg) brightness(103%)
+    contrast(103%);
 }
