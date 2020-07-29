@@ -1,3 +1,11 @@
 export default {
-	name: "OkinaGame"
-}
+  name: 'OkinaGame',
+  defaults: {
+    rememberme: false,
+    clientToken: '',
+    accessToken: '',
+    maxRam: 1e9 * 4,
+    minRam: 1e9 * 1,
+  },
+  serverURL: 'https://authserver.mojang.com/',
+};

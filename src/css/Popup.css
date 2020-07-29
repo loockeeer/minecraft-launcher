@@ -2,10 +2,23 @@
 	margin-top: 100px;
 	position: fixed;
 	width: 420px;
-	background-color: var(--dark-gray);
+	background-color: var(--very-dark-gray);
 	padding: 20px;
 	border-radius: 1.5%;
+  animation: popup_animation 0.8s;
+  display: flex;
+  flex-direction: column;
 }
+
+@keyframes popup_animation {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 100px
+  }
+}
+
 .alert {
 	border: solid var(--black-red) 1px;
 }
@@ -27,4 +40,8 @@
 .Popup__content {
 	color: #fff;
 	font-family: Roboto;
+}
+
+.Popup__closeButton {
+  align-self: flex-end;
 }
