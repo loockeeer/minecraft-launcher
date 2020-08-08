@@ -15,10 +15,10 @@ ReactDOM.render(
     <Router>
       <Redirect to="/" />
       <Switch>
-        <Route path="/" exact>
+        <Route path="/home" exact>
           <LoginPage />
         </Route>
-        <Route path="/home" exact>
+        <Route path="/" exact>
           <HomePage />
         </Route>
       </Switch>

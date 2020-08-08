@@ -1,10 +1,15 @@
 import React from 'react';
-
+import NewsComponent from '../components/NewsComponent';
+import HomeHeader from '../components/HomeHeader';
+import '../css/HomePage.css';
 
 export default class HomePage extends React.Component {
   render() {
     return (
-      <p>HomePage</p>
+    	<div className="HomePage">
+      		<HomeHeader/>
+      		<NewsComponent/>
+      	</div>
     )
   }
 }

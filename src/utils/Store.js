@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 const app = window.require('electron').remote;
 const electron = app.require('electron');
 const fs = app.require('fs');

@@ -1,0 +1,21 @@
+.NewsComponent {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 23%;
+	background-color: rgba(36,36,36,0.8);
+	border-radius: 3px;
+	color: white;
+	font-family: Roboto;
+	padding: 10px;
+}
+
+.NewsComponent__title {
+	font-size: 28px;
+}
+
+.NewsComponent__body {
+	font-size: 15px;
+	font-weight: 300;
+	text-align: center;
+}
