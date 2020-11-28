@@ -8,4 +8,5 @@ export default {
     minRam: 1e9 * 1,
   },
   serverURL: 'https://authserver.mojang.com/',
+  newsURL: 'https://google.com'
 };
