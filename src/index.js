@@ -13,9 +13,9 @@ import HomePage from "./pages/HomePage.jsx";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Redirect to="/" />
+      <Redirect to="/login" />
       <Switch>
-        <Route path="/home" exact>
+        <Route path="/login" exact>
           <LoginPage />
         </Route>
         <Route path="/" exact>
