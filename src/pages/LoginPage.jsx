@@ -38,7 +38,7 @@ class LoginPage extends React.Component {
       <div className="LoginPage">
         {popupShow && <Popup type="alert" title={popupTitle} content={popupContent} close={() => this.setState({ popupShow: false })} />}
         <LoginCard submitButtonDisabled={submitButtonDisabled} submitCredentials={(x) => this.submitCredentials(x)} />
-        {loggedIn && <Redirect to="/home"/>}
+        {loggedIn && <Redirect to="/"/>}
       </div>
     );
   }
