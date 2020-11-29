@@ -1,17 +1,30 @@
 import React from 'react';
 import '../css/NewsComponent.css';
+import fetchNews from '../utils/scripts/fetchNews';
+import HomeStrings from '../strings/Home';
+import ReactMarkdown from 'react-markdown';
 
 class NewsComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {news: HomeStrings.home__news__loading};
+  }
+
+  componentDidMount() {
+    fetchNews().then(markdown=>{
+      this.setState({news: markdown})
+    })
   }
 
   render() {
+    const { news } = this.state;
     return (
       <div className="NewsComponent">
         <h2 className="NewsComponent__title">Nouveautés</h2>
-        <p className="NewsComponent__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a orci lacus. Aliquam ac posuere eros. Fusce sit amet malesuada ligula. Cras tellus leo, pretium a tortor et, condimentum tincidunt massa. Sed hendrerit nec velit et iaculis. Fusce vitae mollis quam. Donec at magna tincidunt, interdum enim nec, gravida est. Ut in nulla tincidunt, hendrerit augue ut, malesuada ligula. Nullam suscipit varius enim vel placerat. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+        <hr class="solid"></hr>
+        <div className="NewsComponent__body">
+          <ReactMarkdown>{news}</ReactMarkdown>
+        </div>
       </div>
     );
   }
