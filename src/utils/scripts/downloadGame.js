@@ -1,6 +1,13 @@
-import Axios from 'axios'
 import walk from './walk'
+const app = window.require('electron').remote;
+const axios = app.require('axios');
+const hasha = app.require('hasha');
 
+/**
+ * @param {string} url Download Server URL
+ * @param {string} path Game path
+ * @param {Function} fb FallBack for when a file is downloaded
+ */
 export default async function downloadGame({url, path, fb}) {
     const files = []
     for await(const file of walk(path)) {
