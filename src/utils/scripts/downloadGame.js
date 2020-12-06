@@ -29,8 +29,12 @@ export default async function downloadGame({ url, path, fb }) {
     data: { files },
   })
     .then((res) => res.data)
-    .catch((res) => {
-      throw res?.body?.message;
+    .catch((err) => {
+      if (err.request) {
+        throw err.request.data.message;
+      } else {
+        throw err;
+      }
     });
 
   // eslint-disable-next-line no-restricted-syntax
