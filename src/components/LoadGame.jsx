@@ -29,7 +29,7 @@ class PlayButton extends React.Component {
     }).then((files) => {
       // Launch the game
       this.setState({ label: LoadGameStrings.load__startGame, showBar: false });
-    });
+    }).catch((err) => { throw err; });
   }
 
   render() {
