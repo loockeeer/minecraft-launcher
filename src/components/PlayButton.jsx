@@ -1,5 +1,6 @@
 import React from 'react';
 import LoadGame from './LoadGame';
+import HomeStrings from '../strings/Home';
 import '../css/PlayButton.css';
 
 class PlayButton extends React.Component {
@@ -18,7 +19,7 @@ class PlayButton extends React.Component {
             className="PlayButton"
             onClick={() => this.setState({ play: true })}
           >
-            JOUER
+            {HomeStrings.home__play__button}
           </a>
         )}
         {play && <LoadGame />}

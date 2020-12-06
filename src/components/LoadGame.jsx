@@ -1,13 +1,14 @@
 import React from 'react';
 import config from '../config.js';
 import downloadGame from '../utils/scripts/downloadGame';
+import LoadGameStrings from '../strings/Home';
 import '../css/LoadGame.css';
 
 class PlayButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 50, label: 'salut', progressMax: 10, showBar: true,
+      progressValue: 50, label: LoadGameStrings.load__startDownload, progressMax: 10, showBar: true,
     };
   }
 
@@ -27,7 +28,7 @@ class PlayButton extends React.Component {
     // eslint-disable-next-line no-unused-vars
     }).then((files) => {
       // Launch the game
-      this.setState({ label: 'Lancement du jeu', showBar: false });
+      this.setState({ label: LoadGameStrings.load__startGame, showBar: false });
     });
   }
 

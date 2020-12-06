@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../config';
 import '../css/HomeHeader.css';
 
 class HomeHeader extends React.Component {
@@ -8,10 +9,13 @@ class HomeHeader extends React.Component {
   }
 
   render() {
+    const { name } = config;
     return (
       <div className="HomeHeader">
         <img alt="logo" className="HomeHeader__logo" src="/logo.png" />
-        <div className="HomeHeader__title">OkinaGame Launcher</div>
+        <div className="HomeHeader__title">
+          {`${name}Launcher`}
+        </div>
       </div>
     );
   }
