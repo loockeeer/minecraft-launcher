@@ -39,7 +39,7 @@
     "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test",
     "eject": "SKIP_PREFLIGHT_CHECK=true react-scripts eject",
     "lint": "eslint .",
-    "fix": "eslint --fix src/components/* src/pages/* src/utils/* src/utils/scripts/*",
+    "fix": "eslint --fix src src/components/* src/pages/* src/utils/* src/utils/scripts/*",
     "prettier": "prettier --write src"
   },
   "browserslist": {
