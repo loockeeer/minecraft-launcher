@@ -17,12 +17,15 @@ export function isAuthenticated() {
  * @returns {Promise<boolean>} Whether the current accessToken (Store) is good or not
  */
 export function isAccessTokenGood() {
-  return yggdrasil.validate({
-    accessToken: store.getAccessToken(),
-    clientToken: store.getClientToken(),
-    serverURL: config.yggdrasilServerURL,
-    ...store.getUserInfo(),
-  }).then(() => true).catch(() => false);
+  return yggdrasil
+    .validate({
+      accessToken: store.getAccessToken(),
+      clientToken: store.getClientToken(),
+      serverURL: config.yggdrasilServerURL,
+      ...store.getUserInfo(),
+    })
+    .then(() => true)
+    .catch(() => false);
 }
 
 /**
@@ -32,18 +35,20 @@ export function isAccessTokenGood() {
  * @returns {Promise<{name: string, id: string, accessToken: string}>}
  */
 export function login({ username, password, rememberme }) {
-  return yggdrasil.auth({
-    username,
-    password,
-    serverURL: config.yggdrasilServerURL,
-    clientToken: store.getClientToken(),
-  }).then((user) => {
-    store.setAccessToken(user.accessToken);
-    store.setClientToken(user.clientToken);
-    store.setUserInfo({ name: user.name, id: user.id });
-    store.setRememberme(rememberme);
-    return user;
-  });
+  return yggdrasil
+    .auth({
+      username,
+      password,
+      serverURL: config.yggdrasilServerURL,
+      clientToken: store.getClientToken(),
+    })
+    .then((user) => {
+      store.setAccessToken(user.accessToken);
+      store.setClientToken(user.clientToken);
+      store.setUserInfo({ name: user.name, id: user.id });
+      store.setRememberme(rememberme);
+      return user;
+    });
 }
 
 /**
@@ -51,16 +56,19 @@ export function login({ username, password, rememberme }) {
  * @returns {Promise<boolean>} Token refreshed or not
  */
 export function refresh() {
-  return yggdrasil.refreshToken({
-    serverURL: config.yggdrasilServerURL,
-    clientToken: store.getClientToken(),
-    accessToken: store.getAccessToken(),
-    selectedProfile: store.getUserInfo(),
-    ...store.getUserInfo(),
-  }).then((user) => {
-    store.setAccessToken(user.accessToken);
-    return true;
-  }).catch(() => false);
+  return yggdrasil
+    .refreshToken({
+      serverURL: config.yggdrasilServerURL,
+      clientToken: store.getClientToken(),
+      accessToken: store.getAccessToken(),
+      selectedProfile: store.getUserInfo(),
+      ...store.getUserInfo(),
+    })
+    .then((user) => {
+      store.setAccessToken(user.accessToken);
+      return true;
+    })
+    .catch(() => false);
 }
 
 /**
@@ -68,13 +76,16 @@ export function refresh() {
  * @returns {Promise<boolean>} Token invalidated or not
  */
 export function invalidate() {
-  return yggdrasil.invalidate({
-    serverURL: config.yggdrasilServerURL,
-    clientToken: store.getClientToken(),
-    accessToken: store.getAccessToken(),
-  }).then(() => {
-    store.setAccessToken(undefined);
-    store.setRandomClientToken();
-    return true;
-  }).catch(() => false);
+  return yggdrasil
+    .invalidate({
+      serverURL: config.yggdrasilServerURL,
+      clientToken: store.getClientToken(),
+      accessToken: store.getAccessToken(),
+    })
+    .then(() => {
+      store.setAccessToken(undefined);
+      store.setRandomClientToken();
+      return true;
+    })
+    .catch(() => false);
 }

@@ -7,31 +7,31 @@ const axios = app.require('axios');
  * @param {string} serverURL YGGDRASIL Server URL
  * @returns {Promise<{name: string, id: string, accessToken: string}>}
  */
-export function auth({
-  username, password, serverURL,
-}) {
+export function auth({ username, password, serverURL }) {
   if (!username) throw new Error('Need username to auth to YGGDRASIL Server.');
   if (!password) throw new Error('Need password to auth to YGGDRASIL Server.');
   if (!serverURL) throw new Error('Need YGGDRASIL ServerURL to auth.');
 
-  return axios.post(`${serverURL}/authenticate`, {
-    agent: {
-      name: 'Minecraft',
-      version: 1,
-    },
-    username,
-    password,
-  }).then((res) => {
-    if (res.data) {
-      return {
-        name: res.data.selectedProfile.name,
-        id: res.data.selectedProfile.id,
-        accessToken: res.data.accessToken,
-        clientToken: res.data.clientToken,
-      };
-    }
-    return false;
-  });
+  return axios
+    .post(`${serverURL}/authenticate`, {
+      agent: {
+        name: 'Minecraft',
+        version: 1,
+      },
+      username,
+      password,
+    })
+    .then((res) => {
+      if (res.data) {
+        return {
+          name: res.data.selectedProfile.name,
+          id: res.data.selectedProfile.id,
+          accessToken: res.data.accessToken,
+          clientToken: res.data.clientToken,
+        };
+      }
+      return false;
+    });
 }
 
 /**
@@ -44,7 +44,11 @@ export function auth({
  * @returns {Promise<string>} The new accessToken
  */
 export function refreshToken({
-  serverURL, accessToken, name, id, clientToken,
+  serverURL,
+  accessToken,
+  name,
+  id,
+  clientToken,
 }) {
   if (!name) throw new Error('Need username to refresh accessToken.');
   if (!id) throw new Error('Need user id refresh accessToken.');
@@ -52,14 +56,16 @@ export function refreshToken({
   if (!clientToken) throw new Error('Need clientToken to refresh accessToken.');
   if (!accessToken) throw new Error('Need accessToken to refresh it.');
 
-  return axios.post(`${serverURL}/refresh`, {
-    accessToken,
-    clientToken,
-    selectedProfile: {
-      name,
-      id,
-    },
-  }).then((res) => res.data.accessToken);
+  return axios
+    .post(`${serverURL}/refresh`, {
+      accessToken,
+      clientToken,
+      selectedProfile: {
+        name,
+        id,
+      },
+    })
+    .then((res) => res.data.accessToken);
 }
 
 /**
@@ -73,10 +79,13 @@ export function validate({ serverURL, accessToken, clientToken }) {
   if (!serverURL) throw new Error('Need YGGDRASIL ServerURL to validate accessToken.');
   if (!clientToken) throw new Error('Need clientToken to validate accessToken.');
   if (!accessToken) throw new Error('Need accessToken to validate it.');
-  return axios.post(`${serverURL}/validate`, {
-    accessToken,
-    clientToken,
-  }).then(() => true).catch(() => false);
+  return axios
+    .post(`${serverURL}/validate`, {
+      accessToken,
+      clientToken,
+    })
+    .then(() => true)
+    .catch(() => false);
 }
 
 /**
@@ -90,8 +99,11 @@ export function invalidate({ serverURL, accessToken, clientToken }) {
   if (!serverURL) throw new Error('Need YGGDRASIL ServerURL to invalidate accessToken.');
   if (!clientToken) throw new Error('Need clientToken to invalidate accessToken.');
   if (!accessToken) throw new Error('Need accessToken to invalidate it.');
-  return axios.post(`${serverURL}/invalidate`, {
-    accessToken,
-    clientToken,
-  }).then(() => true).catch(() => false);
+  return axios
+    .post(`${serverURL}/invalidate`, {
+      accessToken,
+      clientToken,
+    })
+    .then(() => true)
+    .catch(() => false);
 }

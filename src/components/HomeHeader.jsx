@@ -10,8 +10,8 @@ class HomeHeader extends React.Component {
   render() {
     return (
       <div className="HomeHeader">
-	      <img alt="logo" className="HomeHeader__logo" src="/logo.png" />
-	      <div className="HomeHeader__title">OkinaGame Launcher</div>
+        <img alt="logo" className="HomeHeader__logo" src="/logo.png" />
+        <div className="HomeHeader__title">OkinaGame Launcher</div>
       </div>
     );
   }

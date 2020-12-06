@@ -39,7 +39,8 @@
     "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test",
     "eject": "SKIP_PREFLIGHT_CHECK=true react-scripts eject",
     "lint": "eslint .",
-    "fix": "eslint --fix ."
+    "fix": "eslint --fix src/components/* src/pages/* src/utils/* src/utils/scripts/*",
+    "prettier": "prettier --write src"
   },
   "browserslist": {
     "production": [
@@ -60,6 +61,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.4",
-    "eslint-plugin-react-hooks": "^4.0.8"
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "prettier": "^2.2.1"
   }
 }

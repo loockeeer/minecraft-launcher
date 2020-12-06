@@ -1,10 +1,9 @@
 a.PlayButton {
-	text-decoration: none;
-	color: white;
-	font-family: Roboto;
-	font-size: 56px;
-	font-weight: 800;
-	border-radius: 3px;
-	text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-family: Roboto;
+  font-size: 56px;
+  font-weight: 800;
+  border-radius: 3px;
+  text-transform: uppercase;
 }
-

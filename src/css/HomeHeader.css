@@ -1,17 +1,17 @@
 .HomeHeader {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .HomeHeader__title {
-	font-size: 54px;
-	font-family: Roboto;
-	color: white;
-	font-weight: 700;
+  font-size: 54px;
+  font-family: Roboto;
+  color: white;
+  font-weight: 700;
 }
 
 .HomeHeader__logo {
-	width: 100px;
-	height: 100px;
+  width: 100px;
+  height: 100px;
 }

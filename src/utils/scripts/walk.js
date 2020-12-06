@@ -8,6 +8,7 @@ const fs = require('fs/promises');
  */
 async function* walk(dir) {
   const dirents = await fs.readdir(dir, { withFileTypes: true });
+  // eslint-disable-next-line no-restricted-syntax
   for (const dirent of dirents) {
     const res = path.resolve(dir, dirent.name);
     if (dirent.isDirectory()) {

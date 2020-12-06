@@ -1,28 +1,28 @@
 p {
-	text-align: center;
-	color: white;
-	font-size: 15px;
-	font-weight: 100;
-	text-transform: lowercase;
-	font-family: Arial, Helvetica, sans-serif;
-	margin: 0;
-	margin-bottom: 4px;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  font-weight: 100;
+  text-transform: lowercase;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  margin-bottom: 4px;
 }
 
 #progress {
-    width: 35vw;
-    height: 25px;
-    border-radius: 10px;
-    background: red;
-    background-color: orange;
+  width: 35vw;
+  height: 25px;
+  border-radius: 10px;
+  background: red;
+  background-color: orange;
 }
 
 #progress::-webkit-progress-bar {
-    background-color: white;
-    border-radius: 3px;
+  background-color: white;
+  border-radius: 3px;
 }
 
 #progress::-webkit-progress-value {
-    background-color: #6C1010;
-    border-radius: 2px 0 0 2px;
+  background-color: #6c1010;
+  border-radius: 2px 0 0 2px;
 }

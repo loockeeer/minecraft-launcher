@@ -12,8 +12,16 @@ class PlayButton extends React.Component {
     const { play } = this.state;
     return (
       <div>
-        { !play && <a href="#" className="PlayButton" onClick={() => this.setState({ play: true })}>JOUER</a>}
-        { play && <LoadGame />}
+        {!play && (
+          <a
+            href="#"
+            className="PlayButton"
+            onClick={() => this.setState({ play: true })}
+          >
+            JOUER
+          </a>
+        )}
+        {play && <LoadGame />}
       </div>
     );
   }

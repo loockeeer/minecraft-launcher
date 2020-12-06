@@ -12,9 +12,5 @@ export default function launchMinecraft({
   javaPath, jarPath, ramMin, ramMax,
 }) {
   // Launch minecraft with arguments, and return the process
-  const args = [
-    `-Xms${ramMin}G`,
-    `-Xmx${ramMax}G`,
-
-  ];
+  const args = [`-Xms${ramMin}G`, `-Xmx${ramMax}G`];
 }

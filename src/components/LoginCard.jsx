@@ -6,11 +6,16 @@ import LoginStrings from '../strings/Login';
 class LoginCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '', rememberme: false, usernameError: false, passwordError: false, submitButtonDisabled: false };
+    this.state = {
+      username: '',
+      password: '',
+      rememberme: false,
+      usernameError: false,
+      passwordError: false,
+    };
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   handleChangeUsername(event) {
     this.setState({ username: event.target.value });
@@ -32,13 +37,34 @@ class LoginCard extends React.Component {
         <div className="LoginCard">
           <div className="LoginCard__head">
             <img alt="logo" className="LoginCard__head__logo" src="/logo.png" />
-            <div className="LoginCard__head__title">{LoginStrings.login__bar__title}</div>
+            <div className="LoginCard__head__title">
+              {LoginStrings.login__bar__title}
+            </div>
           </div>
           <form className="LoginCard__form">
-            <input onChange={(e) => this.handleChangeUsername(e)} type="text" className={`LoginCard__form__username ${usernameError && 'input-error'} noBorderInput`} id="LoginCard__form__username" placeholder={LoginStrings.login__bar__username} />
-            <input onChange={(e) => this.handleChangePassword(e)} type="password" className={`LoginCard__form__password ${passwordError && 'input-error'} noBorderInput`} id="LoginCard__form__password" placeholder={LoginStrings.login__bar__password} />
+            <input
+              onChange={(e) => this.handleChangeUsername(e)}
+              type="text"
+              className={`LoginCard__form__username ${
+                usernameError && 'input-error'
+              } noBorderInput`}
+              id="LoginCard__form__username"
+              placeholder={LoginStrings.login__bar__username}
+            />
+            <input
+              onChange={(e) => this.handleChangePassword(e)}
+              type="password"
+              className={`LoginCard__form__password ${
+                passwordError && 'input-error'
+              } noBorderInput`}
+              id="LoginCard__form__password"
+              placeholder={LoginStrings.login__bar__password}
+            />
             <div className="LoginCard__form__rememberme">
-              <input onChange={(e) => this.handleChangeCheckbox(e)} type="checkbox" />
+              <input
+                onChange={(e) => this.handleChangeCheckbox(e)}
+                type="checkbox"
+              />
               {LoginStrings.login__bar__remember_me}
             </div>
             <button

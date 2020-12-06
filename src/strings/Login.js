@@ -7,5 +7,6 @@ export default {
   login__bar__login: 'Se connecter',
   login__bar__need_account: "Besoin d'un compte ?",
   // errors
-  login__popup__error__unable_to_connect_to_mojang_servers: "Impossible de se connecter aux serveurs d'authentification de Mojang. Veuillez vérifier votre connection internet ou réessayer plus tard.",
+  login__popup__error__unable_to_connect_to_mojang_servers:
+    "Impossible de se connecter aux serveurs d'authentification de Mojang. Veuillez vérifier votre connection internet ou réessayer plus tard.",
 };

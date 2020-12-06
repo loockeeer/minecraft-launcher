@@ -5,7 +5,9 @@ const path = app.require('path');
 
 export default class Store {
   constructor(defaultdata) {
-    const userDataPath = (electron.app || electron.remote.app).getPath('userData');
+    const userDataPath = (electron.app || electron.remote.app).getPath(
+      'userData',
+    );
 
     this.path = path.join(userDataPath, 'store.json');
 

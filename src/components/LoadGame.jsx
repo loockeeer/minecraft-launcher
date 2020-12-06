@@ -1,10 +1,15 @@
 import React from 'react';
+import downloadGame from '../utils/scripts/downloadGame';
 import '../css/LoadGame.css';
 
 class PlayButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { progressValue: 50, label: 'salut' };
+  }
+
+  componentDidMount() {
+    // Start downloading the game
   }
 
   render() {

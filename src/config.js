@@ -13,5 +13,8 @@ export default {
   },
   yggdrasilServerURL: 'https://authserver.mojang.com/',
   newsURL: 'https://hastebin.com/raw/cigibewopo',
-  gamePath: path.join((electron.app || electron.remote.app).getPath('userData'), 'game'),
+  gamePath: path.join(
+    (electron.app || electron.remote.app).getPath('userData'),
+    'game',
+  ),
 };
