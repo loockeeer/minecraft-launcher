@@ -40,9 +40,7 @@ export default async function downloadGame({ url, path, fb }) {
       path.dirname(path.join(path, toDownload.relativePath)),
       { recursive: true },
     );
-    const file = fs.createWriteStream(
-      path.join(path, toDownload.relativePath),
-    );
+    const file = fs.createWriteStream(path.join(path, toDownload.relativePath));
 
     http.get(`${url}/download/${toDownload.relativePath}`, (res) => {
       res.pipe(file);
