@@ -4,6 +4,7 @@ const axios = app.require('axios');
 const hasha = app.require('hasha');
 
 /**
+ * Downloads the game
  * @param {string} url Download Server URL
  * @param {string} path Game path
  * @param {Function} fb FallBack for when a file is downloaded

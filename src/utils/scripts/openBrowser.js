@@ -1,5 +1,9 @@
 const { shell } = window.require('electron');
 
-export default function openBrowser(link) {
-  shell.openExternal(link);
+/**
+ * Opens a web browser with given URL
+ * @param {string} url The url the browser will point to
+ */
+export default function openBrowser(url) {
+  shell.openExternal(url);
 }
