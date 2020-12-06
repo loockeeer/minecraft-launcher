@@ -2,16 +2,16 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width: 23%;
+	width: 25%;
 	min-width: min-content;
-	max-width: 50%;
+	max-width: 60%;
 	background-color: rgba(36,36,36,0.8);
 	border-radius: 3px;
 	color: white;
 	font-family: Roboto;
 	padding: 15px;
 	min-height: 300px;
-	max-height: 600px;
+	max-height: 60vh;
 	overflow: auto;
 }
 
