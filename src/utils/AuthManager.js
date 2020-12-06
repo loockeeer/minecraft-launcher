@@ -20,7 +20,7 @@ export function isAccessTokenGood() {
   return yggdrasil.validate({
     accessToken: store.getAccessToken(),
     clientToken: store.getClientToken(),
-    serverURL: config.serverURL,
+    serverURL: config.yggdrasilServerURL,
     ...store.getUserInfo(),
   }).then(() => true).catch(() => false);
 }
@@ -35,7 +35,7 @@ export function login({ username, password, rememberme }) {
   return yggdrasil.auth({
     username,
     password,
-    serverURL: config.serverURL,
+    serverURL: config.yggdrasilServerURL,
     clientToken: store.getClientToken(),
   }).then((user) => {
     store.setAccessToken(user.accessToken);
@@ -52,7 +52,7 @@ export function login({ username, password, rememberme }) {
  */
 export function refresh() {
   return yggdrasil.refreshToken({
-    serverURL: config.serverURL,
+    serverURL: config.yggdrasilServerURL,
     clientToken: store.getClientToken(),
     accessToken: store.getAccessToken(),
     selectedProfile: store.getUserInfo(),
@@ -68,7 +68,7 @@ export function refresh() {
  */
 export function invalidate() {
   return yggdrasil.invalidate({
-    serverURL: config.serverURL,
+    serverURL: config.yggdrasilServerURL,
     clientToken: store.getClientToken(),
     accessToken: store.getAccessToken(),
   }).then(() => {

@@ -7,6 +7,6 @@ export default {
     maxRam: 1e9 * 4,
     minRam: 1e9 * 1,
   },
-  serverURL: 'https://authserver.mojang.com/',
+  yggdrasilServerURL: 'https://authserver.mojang.com/',
   newsURL: 'https://hastebin.com/raw/cigibewopo',
 };
