@@ -1,26 +1,19 @@
 import React from 'react';
-import { Redirect } from 'react-router';
+import LoadGame from './LoadGame';
 import '../css/PlayButton.css';
 
 class PlayButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { play: false, progressValue: 50, label: 'salut'};
-  }
-  componentDidMount() {
+    this.state = { play: false };
   }
 
   render() {
-    const { play, progressValue, label } = this.state;
+    const { play } = this.state;
     return (
       <div>
-        { !play && <a href="#" className="PlayButton" onClick={()=>this.setState({ play: true})}>JOUER</a>}
-        { play && (
-        <div>
-          <p>{label}</p>
-          <progress id="progress" max="500" value={progressValue} />
-        </div>
-        )}
+        { !play && <a href="#" className="PlayButton" onClick={() => this.setState({ play: true })}>JOUER</a>}
+        { play && <LoadGame />}
       </div>
     );
   }
