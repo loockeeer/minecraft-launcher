@@ -9,12 +9,16 @@ import {
 } from 'react-router-dom';
 import LoginPage from './pages/LoginPage.jsx';
 import HomePage from './pages/HomePage.jsx';
+import PlayPage from './pages/PlayPage.jsx';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Redirect to="/login" />
       <Switch>
+        <Route path="/play" exact>
+          <PlayPage />
+        </Route>
         <Route path="/login" exact>
           <LoginPage />
         </Route>
