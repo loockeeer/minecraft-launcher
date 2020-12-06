@@ -5,15 +5,21 @@ import * as AuthManager from '../utils/AuthManager.js';
 // import LoginStrings from '../strings/Login';
 // import GenericStrings from '../strings/Generic';
 import { Redirect } from 'react-router';
+import Store from '../utils/StoreManager.js';
 
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
+    this.store = new Store()
     this.state = {};
   }
 
-  componentDidMount() {
-
+  componentWillMount() {
+    if(this.store.getClientToken()) {
+      AuthManager.refresh().then(() => {
+        this.setState({ loggedIn: true })
+      }).catch(err => {})
+    }
   }
 
   submitCredentials({ username, password, rememberme }) {
