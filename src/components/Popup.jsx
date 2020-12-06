@@ -16,11 +16,7 @@ class Popup extends React.Component {
     return (
       <div className="PopupContainer">
         <div className={`Popup ${type}`}>
-          <a
-            href="#"
-            className="Popup__closeButton"
-            onClick={() => close()}
-          />
+          <a href="#" className="Popup__closeButton" onClick={() => close()} />
           <div className="Popup__title">{title}</div>
           <p className="Popup__content">{content}</p>
         </div>
