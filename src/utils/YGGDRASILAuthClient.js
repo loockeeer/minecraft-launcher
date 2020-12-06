@@ -23,7 +23,6 @@ export function auth({
     password,
   }).then((res) => {
     if (res.data) {
-      console.log(res.data.accessToken, res.data.selectedProfile.name);
       return {
         name: res.data.selectedProfile.name,
         id: res.data.selectedProfile.id,

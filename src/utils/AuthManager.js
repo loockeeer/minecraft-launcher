@@ -56,7 +56,7 @@ export function refresh() {
     clientToken: store.getClientToken(),
     accessToken: store.getAccessToken(),
     selectedProfile: store.getUserInfo(),
-    ...store.getUserInfo()
+    ...store.getUserInfo(),
   }).then((user) => {
     store.setAccessToken(user.accessToken);
     return true;

@@ -2,7 +2,7 @@ const app = window.require('electron').remote;
 const { spawn } = app.require('child_process');
 
 /**
- * Launches the game 
+ * Launches the game
  * @param {string} javaPath Java path
  * @param {string} jarPath Game jar path
  * @param {string} ramMin Minimum RAM for JVM
