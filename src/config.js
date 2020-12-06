@@ -17,4 +17,5 @@ export default {
     (electron.app || electron.remote.app).getPath('userData'),
     'game',
   ),
+  downloadServerURL: 'http://localhost:8080',
 };
