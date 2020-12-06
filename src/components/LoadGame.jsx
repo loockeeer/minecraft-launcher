@@ -6,7 +6,9 @@ import '../css/LoadGame.css';
 class PlayButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { progressValue: 50, label: 'salut', progressMax: 10 };
+    this.state = {
+      progressValue: 50, label: 'salut', progressMax: 10, showBar: true,
+    };
   }
 
   componentDidMount() {
@@ -22,15 +24,21 @@ class PlayButton extends React.Component {
           label: file,
         });
       },
+    // eslint-disable-next-line no-unused-vars
+    }).then((files) => {
+      // Launch the game
+      this.setState({ label: 'Lancement du jeu', showBar: false });
     });
   }
 
   render() {
-    const { label, progressValue, progressMax } = this.state;
+    const {
+      label, progressValue, progressMax, showBar,
+    } = this.state;
     return (
       <div>
         <p>{label}</p>
-        <progress id="progress" max={progressMax} value={progressValue} />
+        {showBar && <progress id="progress" max={progressMax} value={progressValue} />}
       </div>
     );
   }
