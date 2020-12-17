@@ -8,27 +8,32 @@ class PlayButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 5, label: LoadGameStrings.load__startDownload, progressMax: 10, showBar: true,
+      progressValue: 0,
+      label: LoadGameStrings.home__load__startDownload,
+      progressMax: 0,
+      showBar: true,
     };
   }
 
   componentDidMount() {
     // Start downloading the game
     downloadGame({
-      url: config.downladServerURL,
-      path: config.gamePath,
+      url: config.downloadServerURL,
+      gamePath: config.gamePath,
       fb: (file, total) => {
-        const { progressValue } = this.state;
-        this.setState({
-          progressMax: total,
-          progressValue: progressValue + 1,
-          label: file,
-        });
+        const { progressValue, showBar } = this.state;
+        if (showBar) {
+          this.setState({
+            progressMax: total,
+            progressValue: progressValue + 1,
+            label: file,
+          });
+        }
       },
     // eslint-disable-next-line no-unused-vars
     }).then((files) => {
       // Launch the game
-      this.setState({ label: LoadGameStrings.load__startGame, showBar: false });
+      this.setState({ label: LoadGameStrings.home__load__startGame, showBar: false });
     }).catch((err) => { throw err; });
   }
 
