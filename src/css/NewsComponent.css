@@ -19,9 +19,7 @@
   font-size: 32px;
 }
 
-.NewsComponent__body {
-  font-size: 15px;
-  font-weight: 300;
+.NewsComponent__body h1, h2, h3 {
   text-align: center;
 }
 
