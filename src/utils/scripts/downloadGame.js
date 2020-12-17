@@ -19,7 +19,10 @@ export default async function downloadGame({ url, gamePath, fb }) {
   for await (const file of walk(gamePath)) {
     const hash = await hasha.fromFile(file, { algorithm: 'sha1' });
     files.push({
-      relativePath: file.replace(gamePath.endsWith('/') ? gamePath : `${gamePath}/`, ''),
+      relativePath: file.replace(
+        gamePath.endsWith('/') ? gamePath : `${gamePath}/`,
+        '',
+      ),
       hash,
     });
   }
@@ -46,7 +49,9 @@ export default async function downloadGame({ url, gamePath, fb }) {
       path.dirname(path.join(gamePath, toDownload.relativePath)),
       { recursive: true },
     );
-    const file = fs.createWriteStream(path.join(gamePath, toDownload.relativePath));
+    const file = fs.createWriteStream(
+      path.join(gamePath, toDownload.relativePath),
+    );
 
     http.get(`${url}/download/${toDownload.relativePath}`, (res) => {
       res.pipe(file);

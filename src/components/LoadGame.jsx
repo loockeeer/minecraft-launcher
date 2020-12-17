@@ -30,11 +30,18 @@ class PlayButton extends React.Component {
           });
         }
       },
-    // eslint-disable-next-line no-unused-vars
-    }).then((files) => {
-      // Launch the game
-      this.setState({ label: LoadGameStrings.home__load__startGame, showBar: false });
-    }).catch((err) => { throw err; });
+      // eslint-disable-next-line no-unused-vars
+    })
+      .then((files) => {
+        // Launch the game
+        this.setState({
+          label: LoadGameStrings.home__load__startGame,
+          showBar: false,
+        });
+      })
+      .catch((err) => {
+        throw err;
+      });
   }
 
   render() {
@@ -44,7 +51,9 @@ class PlayButton extends React.Component {
     return (
       <div>
         <p>{label}</p>
-        {showBar && <progress id="progress" max={progressMax} value={progressValue} />}
+        {showBar && (
+          <progress id="progress" max={progressMax} value={progressValue} />
+        )}
       </div>
     );
   }

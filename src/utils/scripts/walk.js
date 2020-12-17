@@ -8,7 +8,7 @@ const fs = app.require('fs').promises;
  * @returns {string[]} A file path array of all the files in the folder
  */
 async function* walk(dir) {
-  await fs.mkdir(dir, { recursive: true })
+  await fs.mkdir(dir, { recursive: true });
   const dirents = await fs.readdir(dir, { withFileTypes: true });
   // eslint-disable-next-line no-restricted-syntax
   for (const dirent of dirents) {

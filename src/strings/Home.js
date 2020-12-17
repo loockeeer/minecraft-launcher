@@ -6,5 +6,6 @@ export default {
   home__play__button: 'play',
 
   // errors
-  home__load__error__download__server__500: 'Le serveur de téléchargement ne fonctionne pas. Veuillez ré-essayer ultérieurement',
+  home__load__error__download__server__500:
+    'Le serveur de téléchargement ne fonctionne pas. Veuillez ré-essayer ultérieurement',
 };
