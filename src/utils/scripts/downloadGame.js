@@ -30,7 +30,7 @@ export default async function downloadGame({ url, path, fb }) {
   })
     .then((res) => res.data)
     .catch((err) => {
-      if (err.request) {
+      if (err.request.data) {
         throw err.request.data.message;
       } else {
         throw err;
