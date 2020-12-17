@@ -8,7 +8,7 @@ class PlayButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 50, label: LoadGameStrings.load__startDownload, progressMax: 10, showBar: true,
+      progressValue: 5, label: LoadGameStrings.load__startDownload, progressMax: 10, showBar: true,
     };
   }
 
