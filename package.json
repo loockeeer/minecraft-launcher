@@ -34,11 +34,11 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "electron": "NODE_ENV=DEV electron .",
-    "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
-    "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
-    "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test",
-    "eject": "SKIP_PREFLIGHT_CHECK=true react-scripts eject",
+    "electron": "electron .",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "lint": "eslint .",
     "fix": "eslint --fix src src/components/* src/pages/* src/utils/* src/utils/scripts/*",
     "prettier": "prettier --write src"
