@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../config.js';
 import downloadGame from '../utils/scripts/downloadGame';
+import launchMinecraft from '../utils/scripts/launchMinecraft';
 import LoadGameStrings from '../strings/Home';
 import '../css/LoadGame.css';
 
@@ -34,6 +35,7 @@ class PlayButton extends React.Component {
     })
       .then((files) => {
         // Launch the game
+        launchMinecraft()
         this.setState({
           label: LoadGameStrings.home__load__startGame,
           showBar: false,
