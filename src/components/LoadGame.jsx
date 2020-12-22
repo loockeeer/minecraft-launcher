@@ -35,7 +35,7 @@ class PlayButton extends React.Component {
     })
       .then((files) => {
         // Launch the game
-        launchMinecraft()
+        launchMinecraft();
         this.setState({
           label: LoadGameStrings.home__load__startGame,
           showBar: false,

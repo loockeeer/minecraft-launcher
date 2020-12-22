@@ -44,7 +44,7 @@
 
 .Popup__closeButton {
   align-self: flex-end;
-  background: url("/icons/close.svg");
+  background: url("icons/close.svg");
   width: 12px;
   height: 12px;
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(28deg) brightness(103%)

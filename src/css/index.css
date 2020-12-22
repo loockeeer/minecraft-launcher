@@ -21,7 +21,7 @@ body {
 }
 body::after {
   content: "";
-  background: url("/background.webp");
+  background: url("background.webp");
 
   background-size: cover;
   opacity: 0.2;

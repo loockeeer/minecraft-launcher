@@ -3,7 +3,8 @@
   "rules": {
     "react/prop-types": 0,
     "jsx-a11y/anchor-is-valid": 0,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "linebreak-style": [ "warn", "unix"]
   },
   "env": {
     "browser": true
