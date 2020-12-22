@@ -2,10 +2,25 @@ import walk from './walk';
 
 const app = window.require('electron').remote;
 const axios = app.require('axios');
-const hasha = app.require('hasha');
+const crypto = app.require('crypto');
 const http = app.require('http');
 const fs = app.require('fs');
 const path = app.require('path');
+
+function hashFile(filePath) {
+  const hash = crypto.createHash("sha1")
+
+  const file = fs.createReadStream(filePath)
+  const stream = file.pipe(hash).setEncoding('hex')
+
+  return new Promise((resolve, reject) => {
+    stream
+      .on('error',  reject)
+      .on('finish', function () {
+        resolve(this.data)
+      })
+  })
+}
 
 /**
  * Downloads the game
@@ -17,7 +32,8 @@ export default async function downloadGame({ url, gamePath, fb }) {
   const files = [];
   // eslint-disable-next-line no-restricted-syntax
   for await (const file of walk(gamePath)) {
-    const hash = await hasha.fromFile(file, { algorithm: 'sha1' });
+    const hash = await hashFile(file);
+    console.log(hash)
     files.push({
       relativePath: file.replace(
         gamePath.endsWith('/') ? gamePath : `${gamePath}/`,
@@ -26,6 +42,7 @@ export default async function downloadGame({ url, gamePath, fb }) {
       hash,
     });
   }
+
 
   const toDownloadFiles = await axios({
     url: '/compare',
@@ -45,17 +62,25 @@ export default async function downloadGame({ url, gamePath, fb }) {
   // eslint-disable-next-line no-restricted-syntax
   for (const toDownload of toDownloadFiles) {
     // eslint-disable-next-line no-await-in-loop
-    await fs.promises.mkdir(
-      path.dirname(path.join(gamePath, toDownload.relativePath)),
-      { recursive: true },
-    );
-    const file = fs.createWriteStream(
-      path.join(gamePath, toDownload.relativePath),
-    );
+      await fs.promises.mkdir(
+        path.dirname(path.join(gamePath, toDownload.relativePath)),
+        { recursive: true },
+      );
+      console.log(path.join(gamePath, toDownload.relativePath))
+      const file = fs.createWriteStream(
+        path.join(gamePath, toDownload.relativePath),
+      );
 
-    http.get(`${url}/download/${toDownload.relativePath}`, (res) => {
-      res.pipe(file);
-      fb(toDownload.relativePath, toDownloadFiles.length);
-    });
+      console.log(`${url}/download/${toDownload.relativePath}`)
+      await axios.get({
+        method: 'get',
+        url: `${url}/download/${toDownload.relativePath}`,
+        responseType: 'stream'
+      })
+        .then((res) => {
+          return res.data.pipe(file)
+        })
+        .then(_ => fb(toDownload.relativePath, toDownloadFiles.length))
+
   }
 }
