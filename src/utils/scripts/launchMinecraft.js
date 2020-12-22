@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const app = window.require('electron').remote;
 const { spawn } = app.require('child_process');
 

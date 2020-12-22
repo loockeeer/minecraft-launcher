@@ -33,7 +33,7 @@ class PlayButton extends React.Component {
       },
       // eslint-disable-next-line no-unused-vars
     })
-      .then((files) => {
+      .then(() => {
         // Launch the game
         launchMinecraft();
         this.setState({

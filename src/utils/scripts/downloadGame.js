@@ -3,7 +3,6 @@ import walk from './walk';
 const app = window.require('electron').remote;
 const axios = app.require('axios');
 const crypto = app.require('crypto');
-const http = app.require('http');
 const fs = app.require('fs');
 const path = app.require('path');
 
@@ -71,12 +70,13 @@ export default async function downloadGame({ url, gamePath, fb }) {
     );
 
     console.log(`${url}/download/${toDownload.relativePath}`);
+    // eslint-disable-next-line no-await-in-loop
     await axios.get({
       method: 'get',
       url: `${url}/download/${toDownload.relativePath}`,
       responseType: 'stream',
     })
       .then((res) => res.data.pipe(file))
-      .then((_) => fb(toDownload.relativePath, toDownloadFiles.length));
+      .then(() => fb(toDownload.relativePath, toDownloadFiles.length));
   }
 }
