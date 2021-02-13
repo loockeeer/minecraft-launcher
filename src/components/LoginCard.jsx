@@ -36,7 +36,7 @@ class LoginCard extends React.Component {
       <div className="LoginCardContainer">
         <div className="LoginCard">
           <div className="LoginCard__head">
-            <img alt="logo" className="LoginCard__head__logo" src="/logo.png" />
+            <div className="LoginCard__head__logo" />
             <div className="LoginCard__head__title">
               {LoginStrings.login__bar__title}
             </div>

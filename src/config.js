@@ -13,7 +13,7 @@ export default {
   },
   yggdrasilServerURL: 'https://authserver.mojang.com/',
   newsURL:
-    'https://gist.githubusercontent.com/loockeeer/6337cc0c551f6248d2571940d2639379/raw/4222049d723b52f96602981b2dea2948f37746f8/okina.md',
+    'https://gist.githubusercontent.com/loockeeer/6337cc0c551f6248d2571940d2639379/raw/90cc7e6fb477f4d85debeb6f7891a0470a191064/okina.md',
   gamePath: path.join(
     (electron.app || electron.remote.app).getPath('userData'),
     'game',

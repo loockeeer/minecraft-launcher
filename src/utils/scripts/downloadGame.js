@@ -7,17 +7,19 @@ const fs = app.require('fs');
 const path = app.require('path');
 
 function hashFile(filePath) {
-  const hash = crypto.createHash('sha1');
+  const hash = crypto
+    .createHash('sha1')
+    .setEncoding('hex');
 
   const file = fs.createReadStream(filePath);
-  const stream = file.pipe(hash).setEncoding('hex');
 
-  return new Promise((resolve, reject) => {
-    stream
-      .on('error', reject)
-      .on('finish', function () {
-        resolve(this.data);
-      });
+  return new Promise((resolve) => {
+    file.on('end', () => {
+      hash.end();
+      resolve(hash.read());
+    });
+
+    file.pipe(hash);
   });
 }
 
@@ -32,12 +34,11 @@ export default async function downloadGame({ url, gamePath, fb }) {
   // eslint-disable-next-line no-restricted-syntax
   for await (const file of walk(gamePath)) {
     const hash = await hashFile(file);
-    console.log(hash);
+
+    const normalized = path.normalize(file);
+
     files.push({
-      relativePath: file.replace(
-        gamePath.endsWith('/') ? gamePath : `${gamePath}/`,
-        '',
-      ),
+      relativePath: normalized.replace(path.normalize(`${gamePath}/`), ''),
       hash,
     });
   }
@@ -64,19 +65,19 @@ export default async function downloadGame({ url, gamePath, fb }) {
       path.dirname(path.join(gamePath, toDownload.relativePath)),
       { recursive: true },
     );
-    console.log(path.join(gamePath, toDownload.relativePath));
+
     const file = fs.createWriteStream(
-      path.join(gamePath, toDownload.relativePath),
+      path.join(gamePath, path.normalize(toDownload.relativePath)),
     );
 
-    console.log(`${url}/download/${toDownload.relativePath}`);
     // eslint-disable-next-line no-await-in-loop
-    await axios.get({
+    await axios({
       method: 'get',
-      url: `${url}/download/${toDownload.relativePath}`,
+      url: `/download/${encodeURIComponent(toDownload.relativePath)}`.toString(),
+      baseURL: url,
       responseType: 'stream',
     })
       .then((res) => res.data.pipe(file))
-      .then(() => fb(toDownload.relativePath, toDownloadFiles.length));
+      .then(() => fb(path.normalize(toDownload.relativePath), toDownloadFiles.length));
   }
 }

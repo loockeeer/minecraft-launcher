@@ -16,6 +16,7 @@ function createWindow() {
       nodeIntegration: true,
       enableRemoteModule: true,
     },
+    icon: path.join(__dirname, './src/css/logo.ico')
   });
   mainWindow.removeMenu(
   );
@@ -23,7 +24,7 @@ function createWindow() {
   mainWindow.loadURL(
     isDev
       ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, '../build/index.html')}`,
+      : `file://${path.join(__dirname, './build/index.html')}`,
   );
   if (isDev) mainWindow.webContents.openDevTools();
   mainWindow.on('closed', () => {

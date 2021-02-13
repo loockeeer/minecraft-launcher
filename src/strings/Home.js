@@ -1,8 +1,10 @@
 export default {
   // texts
   home__news__loading: '...',
-  home__load__startDownload: 'Initialisation du téléchargement des fichiers',
+  home__load__startDownload: 'Init. du téléchargement',
+  home__load__startHash: 'Identification de la version actuelle ({time})',
   home__load__startGame: 'Lancement du jeu',
+  home__load__downloading: 'Téléchargement des fichiers',
   home__play__button: 'play',
 
   // errors
