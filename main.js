@@ -10,14 +10,15 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1440,
+    height: 1024,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
     },
     icon: path.join(__dirname, './src/css/logo.ico'),
   });
+  mainWindow.setResizable(false);
   mainWindow.removeMenu(
   );
 
