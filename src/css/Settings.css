@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+}
+.Settings {
+    display: flex;
+    flex-direction: row;
+}
+
+.Settings__switch {
+    margin-top: 20px;
+    margin-left: 170px;
+}
+
+.Settings__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    margin-left: 100px;
+}
+
+.Settings__menu__sub {
+    display: flex;
+    flex-direction: column;
+}
+.Settings__menu__sub__link {
+    text-decoration: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.Settings__title {
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: white;
+}
+
+.Settings__switch__title {
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 50px;
+}
