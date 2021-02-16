@@ -1,0 +1,12 @@
+hr.SettingsSubtitle__bar {
+    border-top: 1px solid #fff;
+    width: 50vw;
+}
+
+div.SettingsSubtitle__subtitle {
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    color: white;
+}
