@@ -8,7 +8,13 @@ class About extends React.Component {
 
   render() {
     return (
-      <div className="About" />
+      <div className="About">
+        <p className="About__text">
+          Ce launcher a été réalisé par Loockeeer (Discord : x)
+
+          Il est open source et disponible ici : lien
+        </p>
+      </div>
     );
   }
 }
