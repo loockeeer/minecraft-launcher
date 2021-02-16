@@ -79,7 +79,6 @@ class LoginCard extends React.Component {
 
                 if (username && password) submitCredentials({ username, password, rememberme });
               }}
-              href="#"
               className="LoginCard__submit"
               disabled={submitButtonDisabled}
               type="submit"
