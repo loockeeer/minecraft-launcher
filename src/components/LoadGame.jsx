@@ -20,7 +20,12 @@ class PlayButton extends React.Component {
     let startTime = Date.now();
     const interval = setInterval(() => {
       const str = LoadGameStrings.home__load__startHash;
-      this.setState({ label: str.replace('{time}', `${Math.floor((Date.now() - startTime) / 1000)}s`) });
+      this.setState({
+        label: str.replace(
+          '{time}',
+          `${Math.floor((Date.now() - startTime) / 1000)}s`,
+        ),
+      });
     });
 
     downloadGame({
@@ -36,7 +41,9 @@ class PlayButton extends React.Component {
           this.setState({
             progressMax: total,
             progressValue: progressValue + 1,
-            label: `${LoadGameStrings.home__load__downloading} (${Math.floor(((progressValue + 1) / total) * 100)}%)`,
+            label: `${LoadGameStrings.home__load__downloading} (${Math.floor(
+              ((progressValue + 1) / total) * 100,
+            )}%)`,
           });
         }
       },

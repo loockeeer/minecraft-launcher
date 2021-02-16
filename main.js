@@ -16,7 +16,7 @@ function createWindow() {
       nodeIntegration: true,
       enableRemoteModule: true,
     },
-    icon: path.join(__dirname, './src/css/logo.ico')
+    icon: path.join(__dirname, './src/css/logo.ico'),
   });
   mainWindow.removeMenu(
   );
