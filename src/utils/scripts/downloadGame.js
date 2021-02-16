@@ -2,25 +2,13 @@ import walk from './walk';
 
 const app = window.require('electron').remote;
 const axios = app.require('axios');
-const crypto = app.require('crypto');
 const fs = app.require('fs');
 const path = app.require('path');
+const hashwasm = app.require('hash-wasm');
 
-function hashFile(filePath) {
-  const hash = crypto
-    .createHash('sha1')
-    .setEncoding('hex');
-
-  const file = fs.createReadStream(filePath);
-
-  return new Promise((resolve) => {
-    file.on('end', () => {
-      hash.end();
-      resolve(hash.read());
-    });
-
-    file.pipe(hash);
-  });
+async function hashFile(filePath) {
+  const hash = await hashwasm.md5(await fs.promises.readFile(filePath));
+  return hash;
 }
 
 /**
@@ -60,24 +48,32 @@ export default async function downloadGame({ url, gamePath, fb }) {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const toDownload of toDownloadFiles) {
-    // eslint-disable-next-line no-await-in-loop
-    await fs.promises.mkdir(
-      path.dirname(path.join(gamePath, toDownload.relativePath)),
-      { recursive: true },
-    );
+    if (toDownload.op === 'download') {
+      // eslint-disable-next-line no-await-in-loop
+      await fs.promises.mkdir(
+        path.dirname(path.join(gamePath, toDownload.relativePath)),
+        { recursive: true },
+      );
 
-    const file = fs.createWriteStream(
-      path.join(gamePath, path.normalize(toDownload.relativePath)),
-    );
-
-    // eslint-disable-next-line no-await-in-loop
-    await axios({
-      method: 'get',
-      url: `/download/${encodeURIComponent(toDownload.relativePath)}`.toString(),
-      baseURL: url,
-      responseType: 'stream',
-    })
-      .then((res) => res.data.pipe(file))
-      .then(() => fb(path.normalize(toDownload.relativePath), toDownloadFiles.length));
+      const file = fs.createWriteStream(
+        path.join(gamePath, path.normalize(toDownload.relativePath)),
+      );
+      // eslint-disable-next-line no-await-in-loop
+      await axios({
+        method: 'get',
+        url: `/download/${encodeURIComponent(
+          toDownload.relativePath,
+        )}`.toString(),
+        baseURL: url,
+        responseType: 'stream',
+      })
+        .then((res) => res.data.pipe(file))
+        .then(() => fb(path.normalize(toDownload.relativePath), toDownloadFiles.length));
+    } else if (toDownload.op === 'remove') {
+      // eslint-disable-next-line no-await-in-loop
+      await fs.promises
+        .unlink(path.join(gamePath, path.normalize(toDownload.relativePath)))
+        .then(() => fb(path.normalize(toDownload.relativePath), toDownloadFiles.length));
+    }
   }
 }
