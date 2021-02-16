@@ -1,6 +1,6 @@
 import React from 'react';
 
-class JavaSettings extends React.Component {
+class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -8,9 +8,9 @@ class JavaSettings extends React.Component {
 
   render() {
     return (
-      <div className="JavaSettings" />
+      <div className="Settings" />
     );
   }
 }
 
-export default JavaSettings;
+export default Settings;
