@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "electron": "^9.1.0",
+    "electron": "^11.2.0",
     "electron-is-dev": "^1.2.0",
     "electron-store": "^6.0.0",
     "hash-wasm": "^4.4.1",
