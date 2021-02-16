@@ -23,6 +23,7 @@
     "electron": "^9.1.0",
     "electron-is-dev": "^1.2.0",
     "electron-store": "^6.0.0",
+    "hash-wasm": "^4.4.1",
     "hasha": "^5.2.2",
     "hookrouter": "^1.2.3",
     "open": "^7.0.4",
