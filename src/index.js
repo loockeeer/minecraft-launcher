@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import LoginPage from './pages/LoginPage.jsx';
 import HomePage from './pages/HomePage.jsx';
+import Settings from './pages/settings/Settings.jsx';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,9 @@ ReactDOM.render(
       <Switch>
         <Route path="/login" exact>
           <LoginPage />
+        </Route>
+        <Route path="/settings">
+          <Settings />
         </Route>
         <Route path="/" exact>
           <HomePage />
