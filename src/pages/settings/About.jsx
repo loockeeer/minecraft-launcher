@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../css/About.css';
 
 class About extends React.Component {
   constructor(props) {
@@ -7,14 +8,15 @@ class About extends React.Component {
   }
 
   render() {
+    const text = `
+Ce launcher a été codé par Loockeeer (discord : Loockeeer#8522)
+<br />
+<br />
+Pour toute demande (fonctionnalités, bugs) : https://github.com/loockeeer/minecraft-launcher/issues
+`;
     return (
-      <div className="About">
-        <p className="About__text">
-          Ce launcher a été réalisé par Loockeeer (Discord : x)
-
-          Il est open source et disponible ici : lien
-        </p>
-      </div>
+      // eslint-disable-next-line react/no-danger
+      <div className="About" dangerouslySetInnerHTML={{ __html: text }} />
     );
   }
 }
