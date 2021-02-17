@@ -1,0 +1,19 @@
+.CustomSlider {
+    display: flex;
+    flex-direction: row;
+}
+
+.CustomSlider__input {
+    width: 100%;
+}
+
+.CustomSlider__labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.CustomSlider__slider {
+    width: 50%;
+    margin-right: 25px;
+}
