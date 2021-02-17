@@ -1,0 +1,11 @@
+.JavaSettings__RAM__recommended {
+    text-align: left;
+}
+.JavaSettings__java_path__input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
