@@ -4,13 +4,19 @@ const app = window.require('electron').remote;
 const axios = app.require('axios');
 const fs = app.require('fs');
 const path = app.require('path');
+/*
 const hashwasm = app.require('hash-wasm');
 
 async function hashFile(filePath) {
   const hash = await hashwasm.md5(await fs.promises.readFile(filePath));
   return hash;
 }
+*/
+const hasha = app.require('hasha');
 
+function hashFile(filePath) {
+  return hasha.fromFile(filePath, { algorithm: 'md5' });
+}
 /**
  * Downloads the game
  * @param {string} url Download Server URL
