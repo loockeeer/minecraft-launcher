@@ -7,12 +7,31 @@ export default class CustomStore extends Store {
   }
 
   /**
+   * Set java path
+   * @param {string} path Java path
+   * @returns {CustomStore}
+   */
+  setJavaPath(path) {
+    this.set('javaPath', path);
+    return this;
+  }
+
+  /**
+   * Retrieve Java Path
+   * @returns {string}
+   */
+  getJavaPath() {
+    return this.get('javaPath');
+  }
+
+  /**
    * Remember settings and user info after exit
    * @param {boolean} rememberme
    * @returns {CustomStore}
    */
   setRememberme(rememberme) {
     this.set('rememberme', rememberme);
+    return this;
   }
 
   /**
