@@ -7,8 +7,33 @@
 }
 
 .Settings__switch {
-    margin-top: 20px;
+    margin-top: 44px;
     margin-left: 170px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Settings__switch__buttons {
+    align-self: flex-end;
+    flex-grow: 0;
+    margin-bottom: 20px;
+    margin-right: 100px;
+}
+
+.Settings__switch__buttons__button {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.5px;
+    background-color: var(--very-dark-gray);
+    border-radius: 5%;
+    margin-left: 16px;
+
 }
 
 .Settings__menu {
@@ -30,7 +55,7 @@
     font-weight: 300;
     font-size: 20px;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .Settings__title {
@@ -46,4 +71,17 @@
     font-weight: 400;
     color: white;
     margin-bottom: 50px;
+    flex-grow: 0;
+}
+
+.JavaSettings {
+    flex-grow: 1;
+}
+
+.Update {
+    flex-grow: 1;
+}
+
+.About {
+    flex-grow: 1;
 }
