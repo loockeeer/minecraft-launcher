@@ -8,8 +8,10 @@ export default {
     rememberme: false,
     clientToken: '',
     accessToken: '',
-    maxRam: 1e9 * 4,
-    minRam: 1e9 * 1,
+    maxRam: 4,
+    minRam: 4,
+    recommendedRAM: 8,
+    javaPath: '',
   },
   yggdrasilServerURL: 'https://authserver.mojang.com/',
   newsURL:
