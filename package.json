@@ -6,21 +6,18 @@
   "main": "./main.js",
   "build": {
     "appId": "some.id.ofyours",
-    "directories": {
-      "buildResources": "assets"
+    "linux": {
+      "target": "AppImage"
     },
     "win": {
-      "category": "your.app.category.type",
-      "iconUrl": "path-to-icon.png"
+      "target": "default"
     },
     "mac": {
-      "category": "your.app.category.type",
-      "iconUrl": "path-to-icon.png"
+      "target": "default"
     }
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "electron": "^11.2.0",
     "electron-is-dev": "^1.2.0",
     "electron-store": "^6.0.0",
     "hash-wasm": "^4.4.1",
@@ -42,7 +39,10 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "fix": "eslint --fix src src/components/* src/pages/* src/utils/* src/utils/scripts/*",
-    "prettier": "prettier --write src"
+    "prettier": "prettier --write src",
+    "dist-w": "electron-builder -w",
+    "dist-m": "electron-builder -m",
+    "dist-l": "electron-builder -l"
   },
   "browserslist": {
     "production": [
@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "electron-builder": "^21.2.0",
+    "electron": "^12.0.0-beta.26",
     "eslint": "^7.5.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.0",
