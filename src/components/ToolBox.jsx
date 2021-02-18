@@ -21,6 +21,7 @@ class ToolBox extends React.Component {
           onClick={() => {
             this.store.setAccessToken(undefined);
             this.store.setClientToken(undefined);
+            this.store.setRememberme(false);
             this.store.setUserInfo({ name: undefined, id: undefined });
           }}
           className="ToolBox__button"

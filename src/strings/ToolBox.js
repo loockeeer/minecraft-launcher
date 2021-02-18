@@ -1,4 +1,4 @@
 export default {
-  toolbox__disconnect: 'DECONNECTION',
+  toolbox__disconnect: 'DECONNEXION',
   toolbox__settings: 'PARAMETRES',
 };
