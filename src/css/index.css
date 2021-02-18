@@ -11,7 +11,7 @@ body {
 html {
   margin: 0;
   width: 100%;
-  background-color: #302d2d;
+  background-color: #403c3c;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 }
 body::after {
   content: "";
-  background: url("background.webp");
+  background: url("background.png");
 
   background-size: cover;
   opacity: 0.2;
@@ -38,9 +38,36 @@ body::after {
   border-bottom: 2px solid var(--light-gray);
   background-color: var(--dark-gray);
   outline: none;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   color: white;
 }
 .noBorderInput:focus {
   border-bottom: 2px solid #fff;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F1F1F;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1F1F1F;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: #1F1F1F;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+::-webkit-scrollbar-track:active {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
