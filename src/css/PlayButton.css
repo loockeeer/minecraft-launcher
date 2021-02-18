@@ -1,9 +1,15 @@
 a.PlayButton {
   text-decoration: none;
   color: white;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 56px;
   font-weight: 800;
   border-radius: 3px;
   text-transform: uppercase;
+  transition: font-size 0.5s;
+  z-index:-1;
+}
+
+a.PlayButton:hover {
+  font-size: 65px;
 }
