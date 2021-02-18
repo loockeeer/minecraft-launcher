@@ -33,7 +33,11 @@
     background-color: var(--very-dark-gray);
     border-radius: 5%;
     margin-left: 16px;
+    transition: filter 0.15s;
+}
 
+.Settings__switch__buttons__button:hover {
+    filter: brightness(170%);
 }
 
 .Settings__menu {
@@ -50,12 +54,16 @@
 }
 .Settings__menu__sub__link {
     text-decoration: none;
-    color: white;
+    color: var(--light-gray);
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-size: 20px;
     margin-bottom: 20px;
     margin-top: 40px;
+}
+
+.Settings__menu__sub__link-active {
+    color: white;
 }
 
 .Settings__title {

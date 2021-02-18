@@ -3,6 +3,7 @@ import {
   Switch,
   Route,
   Redirect,
+  NavLink,
   Link,
 } from 'react-router-dom';
 import JavaSettings from './JavaSettings';
@@ -16,9 +17,7 @@ class Settings extends React.Component {
     super(props);
     this.store = new Store();
     this.state = {
-      // eslint-disable-next-line react/no-unused-state
       maxRam: undefined,
-      // eslint-disable-next-line react/no-unused-state
       javaPath: undefined,
     };
   }
@@ -30,10 +29,10 @@ class Settings extends React.Component {
         <div className="Settings__menu">
           <div className="Settings__menu__sub">
             <h1 className="Settings__title Settings__menu__sub__link">{SettingsStrings.settings__header}</h1>
-            <Link to="/settings/java" className="Settings__menu__sub__link">{SettingsStrings.settings__java__link}</Link>
+            <NavLink exact to="/settings/java" className="Settings__menu__sub__link" activeClassName="Settings__menu__sub__link-active">{SettingsStrings.settings__java__header}</NavLink>
           </div>
           <div className="Settings__menu__sub">
-            <Link to="/settings/about" className="Settings__menu__sub__link">{SettingsStrings.settings__about__link}</Link>
+            <NavLink exact to="/settings/about" className="Settings__menu__sub__link" activeClassName="Settings__menu__sub__link-active">{SettingsStrings.settings__about__header}</NavLink>
           </div>
         </div>
         <Redirect to="/settings/java" />
@@ -44,11 +43,9 @@ class Settings extends React.Component {
               <JavaSettings
                 className="Settings__page"
                 onRAMChange={(value) => {
-                  /* eslint-disable-next-line react/no-unused-state */
                   this.setState({ maxRam: value });
                 }}
                 onJavaPathChange={(value) => {
-                  /* eslint-disable-next-line react/no-unused-state */
                   this.setState({ javaPath: value });
                 }}
               />
