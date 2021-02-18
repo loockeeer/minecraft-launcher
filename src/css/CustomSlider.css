@@ -4,8 +4,30 @@
 }
 
 .CustomSlider__input {
+    -webkit-appearance: none;
+    appearance: none;
     width: 100%;
+    height: 8px;
+    outline: none !important;
+    border: none;
+    border-radius: 30px;
 }
+
+.CustomSlider__input:hover {
+    outline: none;
+}
+
+.CustomSlider__input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--light-red);
+    cursor: pointer;
+    border-radius:50px;
+    outline:none;
+}
+
 
 .CustomSlider__labels {
     display: flex;
