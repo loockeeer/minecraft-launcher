@@ -1,0 +1,95 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add --save --dev electron-forge
+
+PATH: 
+  C:\Users\ROOY Lucas\Documents\minecraft-launcher\node_modules\.bin;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Intel\TXE Components\DAL\;C:\Program Files (x86)\Intel\TXE Components\DAL\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\ProgramData\chocolatey\bin;C:\Users\ROOY Lucas\AppData\Local\Programs\Python\Launcher\;C:\Users\ROOY Lucas\AppData\Local\Microsoft\WindowsApps;;C:\Users\ROOY Lucas\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ROOY Lucas\AppData\Roaming\npm;C:\Users\ROOY Lucas\go\bin;C:\Users\ROOY Lucas\.deno\bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.0.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EBUSY: resource busy or locked, unlink 'C:\Users\ROOY Lucas\Documents\minecraft-launcher\node_modules\electron\dist\icudtl.dat'
+
+npm manifest: 
+  {
+    "name": "minecraft-launcher",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "./",
+    "main": "./main.js",
+    "build": {
+      "appId": "some.id.ofyours",
+      "linux": {
+        "target": "AppImage"
+      },
+      "win": {
+        "target": "default"
+      },
+      "mac": {
+        "target": "default"
+      }
+    },
+    "dependencies": {
+      "axios": "^0.19.2",
+      "electron-is-dev": "^1.2.0",
+      "electron-store": "^6.0.0",
+      "hash-wasm": "^4.4.1",
+      "hasha": "^5.2.2",
+      "hookrouter": "^1.2.3",
+      "open": "^7.0.4",
+      "react": "^16.10.2",
+      "react-dom": "^16.10.2",
+      "react-markdown": "^5.0.3",
+      "react-router": "^5.2.0",
+      "react-router-dom": "^5.2.0",
+      "react-scripts": "4.0.1"
+    },
+    "scripts": {
+      "electron": "electron .",
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject",
+      "lint": "eslint .",
+      "fix": "eslint --fix src src/components/* src/pages/* src/utils/* src/utils/scripts/*",
+      "prettier": "prettier --write src",
+      "dist-w": "electron-builder -w",
+      "dist-m": "electron-builder -m",
+      "dist-l": "electron-builder -l"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "devDependencies": {
+      "electron-builder": "^21.2.0",
+      "electron": "^12.0.0-beta.26",
+      "eslint": "^7.5.0",
+      "eslint-config-airbnb": "^18.2.0",
+      "eslint-plugin-import": "^2.22.0",
+      "eslint-plugin-jsx-a11y": "^6.3.1",
+      "eslint-plugin-react": "^7.20.4",
+      "eslint-plugin-react-hooks": "^4.0.8",
+      "prettier": "^2.2.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

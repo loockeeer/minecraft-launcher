@@ -9,6 +9,7 @@
     overflow: hidden;
     position: absolute;
     z-index: -1;
+    cursor: pointer;
 }
 
 .JavaSettings__java_path__label {
@@ -17,4 +18,5 @@
     font-weight: 300;
     border-bottom: white solid 1px;
     padding: 5px;
+    cursor: pointer;
 }
