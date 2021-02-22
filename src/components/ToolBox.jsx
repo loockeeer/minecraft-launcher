@@ -4,6 +4,7 @@ import '../css/ToolBox.css';
 import UserInfo from './UserInfo';
 import Store from '../utils/StoreManager';
 import Strings from '../strings/ToolBox';
+import { invalidate } from '../utils/AuthManager';
 
 class ToolBox extends React.Component {
   constructor(props) {
@@ -17,12 +18,10 @@ class ToolBox extends React.Component {
         <UserInfo />
         <Link
           href="#"
-          to="/login"
-          onClick={() => {
-            this.store.setAccessToken(undefined);
-            this.store.setClientToken(undefined);
-            this.store.setRememberme(false);
-            this.store.setUserInfo({ name: undefined, id: undefined });
+          to="/"
+          onClick={async () => {
+            await invalidate();
+            this.store.setUserProfile({});
           }}
           className="ToolBox__button"
         >

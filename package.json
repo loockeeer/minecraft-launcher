@@ -23,6 +23,7 @@
     "hash-wasm": "^4.4.1",
     "hasha": "^5.2.2",
     "hookrouter": "^1.2.3",
+    "minecraft-launcher-core": "^3.16.2",
     "open": "^7.0.4",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

@@ -9,7 +9,7 @@ const store = new Store();
  * @returns {boolean} Whether the user is authenticated or not
  */
 export function isAuthenticated() {
-  return !!store.getAccessToken();
+  return !!store.getUserProfile()?.access_token;
 }
 
 /**
@@ -19,10 +19,11 @@ export function isAuthenticated() {
 export function isAccessTokenGood() {
   return yggdrasil
     .validate({
-      accessToken: store.getAccessToken(),
-      clientToken: store.getClientToken(),
+      accessToken: store.getUserProfile().access_token,
+      clientToken: store.getUserProfile().client_token,
       serverURL: config.yggdrasilServerURL,
-      ...store.getUserInfo(),
+      name: store.getUserProfile().name,
+      id: store.getUserProfile().uuid,
     })
     .then(() => true)
     .catch(() => false);
@@ -31,8 +32,8 @@ export function isAccessTokenGood() {
 /**
  * @param {string} username User's name
  * @param {string} password User's password
- * @param {string} rememberme Remember info. or not
- * @returns {Promise<{name: string, id: string, accessToken: string}>}
+ * @param {boolean} rememberme Remember info. or not after launcher closes
+ * @returns {Promise<Object>}
  */
 export function login({ username, password, rememberme }) {
   return yggdrasil
@@ -40,14 +41,19 @@ export function login({ username, password, rememberme }) {
       username,
       password,
       serverURL: config.yggdrasilServerURL,
-      clientToken: store.getClientToken(),
+      clientToken: store.getUserProfile().client_token,
     })
-    .then((user) => {
-      store.setAccessToken(user.accessToken);
-      store.setClientToken(user.clientToken);
-      store.setUserInfo({ name: user.name, id: user.id });
+    .then((body) => {
+      store.setUserProfile({
+        access_token: body.accessToken,
+        client_token: body.clientToken,
+        uuid: body.selectedProfile.id,
+        name: body.selectedProfile.name,
+        selected_profile: body.selectedProfile,
+        user_properties: JSON.stringify(body?.user?.properties || {}),
+      });
       store.setRememberme(rememberme);
-      return user;
+      return body;
     });
 }
 
@@ -59,13 +65,21 @@ export function refresh() {
   return yggdrasil
     .refreshToken({
       serverURL: config.yggdrasilServerURL,
-      clientToken: store.getClientToken(),
-      accessToken: store.getAccessToken(),
-      selectedProfile: store.getUserInfo(),
-      ...store.getUserInfo(),
+      clientToken: store.getUserProfile().client_token,
+      accessToken: store.getUserProfile().access_token,
+      selectedProfile: store.getUserProfile().selected_profile,
+      name: store.getUserProfile().name,
+      id: store.getUserProfile().uuid,
     })
-    .then((user) => {
-      store.setAccessToken(user.accessToken);
+    .then((body) => {
+      store.setUserProfile({
+        access_token: body.accessToken,
+        client_token: body.clientToken,
+        uuid: body.selectedProfile.id,
+        name: body.selectedProfile.name,
+        selected_profile: body.selectedProfile,
+        user_properties: JSON.stringify(body?.user?.properties || {}),
+      });
       return true;
     })
     .catch(() => false);
@@ -79,12 +93,12 @@ export function invalidate() {
   return yggdrasil
     .invalidate({
       serverURL: config.yggdrasilServerURL,
-      clientToken: store.getClientToken(),
-      accessToken: store.getAccessToken(),
+      clientToken: store.getUserProfile().client_token,
+      accessToken: store.getUserProfile().access_token,
     })
     .then(() => {
-      store.setAccessToken(undefined);
-      store.setRandomClientToken();
+      store.setUserProfile({});
+      store.setRememberme(false);
       return true;
     })
     .catch(() => false);

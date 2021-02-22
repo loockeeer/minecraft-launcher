@@ -1,12 +1,18 @@
 import React from 'react';
 import config from '../config.js';
 import downloadGame from '../utils/scripts/downloadGame';
+import startMinecraft from '../utils/scripts/startMinecraft';
 import LoadGameStrings from '../strings/Home';
+import Store from '../utils/StoreManager';
 import '../css/LoadGame.css';
+
+const app = window.require('electron').remote;
+const path = app.require('path');
 
 class PlayButton extends React.Component {
   constructor(props) {
     super(props);
+    this.store = new Store();
     this.state = {
       progressValue: 0,
       label: LoadGameStrings.home__load__startHash,
@@ -55,6 +61,15 @@ class PlayButton extends React.Component {
         this.setState({
           label: LoadGameStrings.home__load__startGame,
           showBar: false,
+        });
+        startMinecraft({
+          userProfile: this.store.getUserProfile(),
+          ramMin: config.minRam,
+          ramMax: this.store.getMaxRam(),
+          version: config.gameVersion,
+          javaPath: this.store.getJavaPath(),
+          forgePath: path.join(config.gamePath, config.relativeForgePath),
+          gamePath: config.gamePath,
         });
       })
       .catch((err) => {

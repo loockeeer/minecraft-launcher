@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../download-server/.idea/download-server.iml" filepath="$PROJECT_DIR$/../download-server/.idea/download-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/minecraft-launcher.iml" filepath="$PROJECT_DIR$/.idea/minecraft-launcher.iml" />
       <module fileurl="file://$PROJECT_DIR$/../minecraft-launcher-test/.idea/minecraft-launcher-test.iml" filepath="$PROJECT_DIR$/../minecraft-launcher-test/.idea/minecraft-launcher-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../test/.idea/test.iml" filepath="$PROJECT_DIR$/../test/.idea/test.iml" />
     </modules>
   </component>
 </project>

@@ -43,41 +43,6 @@ export default class CustomStore extends Store {
   }
 
   /**
-   * Stores a clientToken in the Store.
-   * @param {string} clientToken The new clientToken
-   * @returns {CustomStore}
-   */
-  setClientToken(clientToken) {
-    this.set('clientToken', clientToken);
-    return this;
-  }
-
-  /**
-   * Retrieve the clientToken of the current logged-in user from the Store.
-   * @returns {string} The clientToken for invalidate or refresh accessToken
-   */
-  getClientToken() {
-    return this.get('clientToken');
-  }
-
-  /**
-   * Stores the the accessToken of the current logged-in user.
-   * @returns {CustomStore}
-   */
-  setAccessToken(accessToken) {
-    this.set('accessToken', accessToken);
-    return this;
-  }
-
-  /**
-   * Retrieve the accessToken of the current logged-in user from the Store.
-   * @returns {string} The accessToken of the current logged-in user
-   */
-  getAccessToken() {
-    return this.get('accessToken');
-  }
-
-  /**
    * Stores the Maximum JVM RAM in Bytes.
    * @param {int} Maximum JVM RAM in Bytes
    * @returns {CustomStore}
@@ -96,40 +61,29 @@ export default class CustomStore extends Store {
   }
 
   /**
-   * Stores the Minimum JVM RAM in Bytes.
-   * @param {int} Minimum JVM RAM in Bytes
+   * Set user profile
+   * @param {Object} profile User profile
    * @returns {CustomStore}
    */
-  setMinRam(minRam) {
-    this.set('minRam', minRam);
+  setUserProfile(profile) {
+    this.set('userProfile', profile);
     return this;
   }
 
   /**
-   * Retrieve Minimum JVM RAM in Bytes from the Store.
-   * @returns {int} Minimum JVM RAM in Bytes
+   * Retrieve User profile
+   * @returns {Object} User profile
    */
-  getMinRam() {
-    return this.get('minRam');
+  getUserProfile() {
+    return this.get('userProfile');
   }
 
   /**
-   * Set User information (name, UUID)
-   * @param {string} name User's name
-   * @param {string} id User's ID
+   * Reset user profile
    * @returns {CustomStore}
    */
-  setUserInfo({ name, id }) {
-    this.set('username', name);
-    this.set('userID', id);
+  resetUserProfile() {
+    this.setUserProfile(config.defaults.userProfile);
     return this;
-  }
-
-  /**
-   * Retrieve User information
-   * @returns {{name: string, id: string}} User Info
-   */
-  getUserInfo() {
-    return { name: this.get('username'), id: this.get('userID') };
   }
 }

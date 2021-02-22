@@ -4,14 +4,20 @@ const path = app.require('path');
 
 export default {
   name: 'OkinaGame',
+  minRam: 1,
   defaults: {
     rememberme: false,
-    clientToken: '',
-    accessToken: '',
     maxRam: 4,
-    minRam: 1,
     recommendedRAM: 4,
     javaPath: '',
+    userProfile: {
+      name: undefined,
+      uuid: undefined,
+      access_token: undefined,
+      client_token: undefined,
+      selected_profile: undefined,
+      user_properties: undefined,
+    },
   },
   yggdrasilServerURL: 'https://authserver.mojang.com/',
   newsURL:
@@ -21,4 +27,9 @@ export default {
     'game',
   ),
   downloadServerURL: 'http://localhost:8080',
+  relativeForgePath: 'forge.jar',
+  gameVersion: {
+    type: 'release',
+    number: '1.16',
+  },
 };

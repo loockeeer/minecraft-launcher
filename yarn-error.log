@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add --save --dev electron-forge
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add minecraft-launcher-core --save
 
 PATH: 
   C:\Users\ROOY Lucas\Documents\minecraft-launcher\node_modules\.bin;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Intel\TXE Components\DAL\;C:\Program Files (x86)\Intel\TXE Components\DAL\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\ProgramData\chocolatey\bin;C:\Users\ROOY Lucas\AppData\Local\Programs\Python\Launcher\;C:\Users\ROOY Lucas\AppData\Local\Microsoft\WindowsApps;;C:\Users\ROOY Lucas\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ROOY Lucas\AppData\Roaming\npm;C:\Users\ROOY Lucas\go\bin;C:\Users\ROOY Lucas\.deno\bin

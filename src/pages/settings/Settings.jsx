@@ -71,7 +71,7 @@ class Settings extends React.Component {
             >
               {SettingsStrings.settings__buttons__save}
             </a>
-            <Link to="/" className="Settings__switch__buttons__button">{SettingsStrings.settings__buttons__quit}</Link>
+            <Link to="/home" className="Settings__switch__buttons__button">{SettingsStrings.settings__buttons__quit}</Link>
           </div>
         </div>
       </div>

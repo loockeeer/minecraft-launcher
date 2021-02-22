@@ -6,6 +6,7 @@ import * as AuthManager from '../utils/AuthManager.js';
 // import LoginStrings from '../strings/Login';
 // import GenericStrings from '../strings/Generic';
 import Store from '../utils/StoreManager.js';
+import { isAuthenticated } from '../utils/AuthManager.js';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class LoginPage extends React.Component {
   }
 
   componentDidMount() {
-    if (this.store.getClientToken()) {
+    if (isAuthenticated()) {
       AuthManager.refresh()
         .then(() => {
           this.setState({ loggedIn: true });
@@ -38,7 +39,7 @@ class LoginPage extends React.Component {
       .catch((err) => {
         this.setState({
           submitButtonDisabled: false,
-          popupContent: err.response.data.errorMessage,
+          popupContent: err?.response?.data?.errorMessage,
           popupShow: true,
           popupTitle: "Erreur d'authentification",
         });
@@ -67,7 +68,7 @@ class LoginPage extends React.Component {
           submitButtonDisabled={submitButtonDisabled}
           submitCredentials={(x) => this.submitCredentials(x)}
         />
-        {loggedIn && <Redirect to="/" />}
+        {loggedIn && <Redirect to="/home" />}
       </div>
     );
   }

@@ -13,6 +13,11 @@ export default class Store {
 
     try {
       this.data = JSON.parse(fs.readFileSync(this.path));
+      Object.entries(defaultdata).forEach(([key, value]) => {
+        if (!this.get(key)) {
+          this.set(key, value);
+        }
+      });
     } catch (e) {
       this.data = defaultdata || {};
     }

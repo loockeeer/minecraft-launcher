@@ -10,8 +10,8 @@ class UserInfo extends React.Component {
   }
 
   render() {
-    const { name, id } = this.store.getUserInfo();
-    const avatarURL = `https://crafatar.com/avatars/${id}`;
+    const { name, uuid } = this.store.getUserProfile();
+    const avatarURL = `https://crafatar.com/avatars/${uuid}`;
     return (
       <div className="UserInfo">
         <p className="UserInfo__username">{name}</p>
